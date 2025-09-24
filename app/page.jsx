@@ -1,5 +1,3 @@
-"use client"; // <-- Add this at the very top
-
 import { useMemo, useState } from "react";
 import { 
   Row, Col, Card, Statistic, Select, Input, Table, Tag, Space, Button, Typography, Modal, List, Avatar 
@@ -117,12 +115,10 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen p-5 bg-gradient-to-r from-pink-200 via-blue-100 to-purple-200 animate-gradient-x">
-      {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Orders Dashboard</h1>
       </div>
 
-      {/* Metrics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
         <div className="bg-white rounded-xl shadow p-4">
           <Statistic title="Total Orders" value={metrics.totalOrders} prefix={<ShoppingCartOutlined className="text-blue-500"/>}/>
@@ -141,7 +137,6 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Charts */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
         <div className="bg-white rounded-xl shadow p-4">
           <h2 className="font-bold mb-2">Order Status Breakdown</h2>
@@ -162,9 +157,9 @@ export default function Dashboard() {
     </Pie>
     <Tooltip />
     <Legend
-      layout="vertical"       // vertical list
-      verticalAlign="middle"  // center vertically
-      align="right"           // position on the right side
+      layout="vertical"       
+      verticalAlign="middle"  
+      align="right"         
       iconSize={15}
     />
   </PieChart>
@@ -187,7 +182,6 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Orders Table */}
       <div className="bg-white rounded-xl shadow p-4">
         <div className="flex justify-between mb-4">
           <Space>
@@ -206,7 +200,6 @@ export default function Dashboard() {
         <Table columns={columns} dataSource={filteredOrders.map(o=>({...o,key:o.Order_ID}))} pagination={{ pageSize:10 }} bordered size="middle"/>
       </div>
 
-      {/* Modal */}
       <Modal title={`Order Details - #${selectedOrder?.Order_ID}`} open={isModalVisible} onCancel={()=>setIsModalVisible(false)} footer={null} width={600}>
         {selectedOrder && (
           <div>
