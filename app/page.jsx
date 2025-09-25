@@ -1,3 +1,4 @@
+"use client";
 import { useMemo, useState } from "react";
 import { 
   Row, Col, Card, Statistic, Select, Input, Table, Tag, Space, Button, Typography, Modal, List, Avatar 
